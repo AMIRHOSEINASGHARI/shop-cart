@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { BASE_URL } from '../../services/api';
+import styles from './ProductDetail.module.css';
 
 const ProductDetail = () => {
     const [product , setProduct] = useState([]);
@@ -13,10 +14,10 @@ const ProductDetail = () => {
     })
 
     return (
-        <div>
-            <div>
+        <div className={styles.mainDetailContainer}>
+            <div className={styles.detailContainer}>
                 <img src={product.image} alt="product image" />
-                <div>
+                <div className={styles.productDetail}>
                     <h1>{product.title}</h1>
                     <h3>{product.category}</h3>
                     <p>{product.description}</p>
