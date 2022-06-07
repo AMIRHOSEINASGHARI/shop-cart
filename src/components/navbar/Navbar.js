@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Navbar.module.css';
 
 //tools
 import shoppingBag from '../../tools/shopping-bag.png'
@@ -11,11 +12,11 @@ const Navbar = () => {
     const {state} = useContext(CartContext)
 
     return (
-        <div>
+        <div className={styles.navbar}>
             <Link to='/'>Products</Link>
-            <Link to='/cart'>
+            <Link to='/cart' className={styles.navbarImage}>
                 <img src={shoppingBag} alt="shopping bag" />
-                <span>{state.itemsCounter ===0 ? 0 : state.itemsCounter}</span>
+                <span className={styles.itemsCounter}>{state.itemsCounter ===0 ? 0 : state.itemsCounter}</span>
             </Link>
         </div>
     );
