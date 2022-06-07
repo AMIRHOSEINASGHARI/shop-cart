@@ -19,14 +19,15 @@ const Product = (props) => {
         <div>
             <img src={image} alt="product" />
             <h1>{shortTheTitle(title)}</h1>
+            <span>{qCounter(state , props.productData.id)}</span>
             <h4>{price} $</h4>
             <div>
                 <Link to={`/productdetail/${id}`}>Details</Link>
                 {
-                    qCounter(state , props.productData.id) > 1 && <button onClick={() => dispatch({type: 'decrease' , payload: props.productData})}>-</button>
+                    qCounter(state , props.productData.id) > 1 && <button onClick={() => dispatch({type: 'DECREASE' , payload: props.productData})}>-</button>
                 }
                 {
-                    qCounter(state , props.productData.id) === 1 && <button onClick={() => dispatch({type: 'remove' , payload: props.productData})}><img src={trashCan} alt='remove' /></button>
+                    qCounter(state , props.productData.id) === 1 && <button onClick={() => dispatch({type: 'REMOVE_ITEM' , payload: props.productData})}><img src={trashCan} alt='remove' /></button>
                 }
                 {
                     isInCart(state , props.productData.id) ?
