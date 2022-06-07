@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Product.module.css';
 
 //tools
 import trashCan from '../../tools/trash-can.png';
@@ -16,10 +17,10 @@ const Product = (props) => {
     const {state , dispatch} = useContext(CartContext)
 
     return (
-        <div>
+        <div className={styles.productContainer}>
             <img src={image} alt="product" />
             <h1>{shortTheTitle(title)}</h1>
-            <span>{qCounter(state , props.productData.id)}</span>
+            <span className={qCounter(state , props.productData.id) >0 ? styles.qCounterNoneZero : styles.qCounterZero}>{qCounter(state , props.productData.id)}</span>
             <h4>{price} $</h4>
             <div>
                 <Link to={`/productdetail/${id}`}>Details</Link>
@@ -27,7 +28,7 @@ const Product = (props) => {
                     qCounter(state , props.productData.id) > 1 && <button onClick={() => dispatch({type: 'DECREASE' , payload: props.productData})}>-</button>
                 }
                 {
-                    qCounter(state , props.productData.id) === 1 && <button onClick={() => dispatch({type: 'REMOVE_ITEM' , payload: props.productData})}><img src={trashCan} alt='remove' /></button>
+                    qCounter(state , props.productData.id) === 1 && <button className={styles.trashCan} onClick={() => dispatch({type: 'REMOVE_ITEM' , payload: props.productData})}><img src={trashCan} alt='remove' /></button>
                 }
                 {
                     isInCart(state , props.productData.id) ?
