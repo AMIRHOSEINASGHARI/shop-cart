@@ -1,10 +1,11 @@
 import React from 'react';
+import ProductContextProvider from './services/ProductContextProvider';
 
 const App = () => {
   return (
-    <div>
+    <ProductContextProvider>
       
-    </div>
+    </ProductContextProvider>
   );
 };
 
