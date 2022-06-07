@@ -8,4 +8,13 @@ const isInCart = (state , id) => {
     return result;
 }
 
-export {shortTheTitle , isInCart};
+const qCounter = (state , id) => {
+    const index = state.selectedItems.findIndex(item => item.id === id);
+    if (index >=0) {
+        return state.selectedItems[index].quantity;
+    }else {
+        return false
+    }
+}
+
+export {shortTheTitle , isInCart , qCounter};
