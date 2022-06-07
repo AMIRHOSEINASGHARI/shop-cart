@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 
 //context
 import { CartContext } from '../../services/CartContextProvider';
+
+//functions
 import { shortTheTitle } from '../../services/functions';
 
 //tools
