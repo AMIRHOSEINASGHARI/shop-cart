@@ -9,16 +9,19 @@ import ProductDetail from './components/product details/ProductDetail';
 
 //context
 import ProductContextProvider from './services/ProductContextProvider';
+import CartContextProvider from './services/CartContextProvider'
 
 const App = () => {
   return (
     <ProductContextProvider>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/productdetail/:id' element={<ProductDetail />} />
-        <Route path='/cart' element={<Cart />} />
-      </Routes>
+      <CartContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/productdetail/:id' element={<ProductDetail />} />
+          <Route path='/cart' element={<Cart />} />
+        </Routes>
+      </CartContextProvider>
     </ProductContextProvider>
   );
 };

@@ -3,4 +3,9 @@ const shortTheTitle = (title) => {
     return `${splitedTitle[0]}${splitedTitle[1]}`
 }
 
-export {shortTheTitle};
+const isInCart = (state , id) => {
+    const result = !!state.selectedItems.find(item => item.id === id)
+    return result;
+}
+
+export {shortTheTitle , isInCart};

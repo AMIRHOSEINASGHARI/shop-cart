@@ -1,5 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 
+export const CartContext = createContext();
+
 const initialState = {
     selectedItems: [],
     itemsCounter: 0,
@@ -50,10 +52,16 @@ const cartReducer = (state , action) => {
                 totalPrice: 0,
                 checkout: false
             }
+        default :
+            return {
+                selectedItems: [],
+                itemsCounter: 0,
+                totalPrice: 0,
+                checkout: false
+            }
     }
 }
 
-export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
     const [state , dispatch] = useReducer(cartReducer , initialState);
